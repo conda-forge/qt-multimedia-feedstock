@@ -1,4 +1,4 @@
-{% set version = "6.7.1" %}
+{% set version = "6.7.2" %}
 
 package:
   name: qt6-multimedia
@@ -6,14 +6,14 @@ package:
 
 source:
   url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qtmultimedia-everywhere-src-{{ version }}.tar.xz
-  sha256: 656d1543727f5bf1bd39fe2548ac454860109dc8555df77d7940f21e3d65cd3e
+  sha256: 8ef835115acb9a1d3d2c9f23cfacb43f2c537e3786a8ab822299a2a7765651d3
 
 build:
-  number: 2
+  number: 0
   detect_binary_files_with_prefix: true
   run_exports:
     - {{ pin_subpackage('qt6-multimedia', max_pin='x.x') }}
-  missing_dso_whitelist:  # [win]
+  missing_dso_whitelist:   # [win]
     - '$RPATH/api-ms-win-core-libraryloader-l1-2-0.dll'  # [win]
     - '$RPATH/api-ms-win-ntuser-sysparams-l1-1-0.dll'  # [win]
     - '$RPATH/api-ms-win-core-heap-l2-1-0.dll'  # [win]
