@@ -33,13 +33,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - qt6-main {{ version }}             # [build_platform != target_platform]
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
-    - {{ cdt('mesa-libegl-devel') }}     # [linux]
-    - {{ cdt('mesa-dri-drivers') }}      # [linux]
-    - {{ cdt('libdrm-devel') }}          # [linux]
-    - {{ cdt('libglvnd-glx') }}          # [linux]
-    - {{ cdt('libglvnd-egl') }}          # [linux]
-    - {{ cdt('libglvnd-devel') }}        # [linux]
 
     # native libs
     - ffmpeg                             # [build_platform != target_platform]
@@ -74,6 +67,10 @@ requirements:
     - pthread-stubs                      # [linux]
     - pulseaudio-client                  # [linux]
     - qt6-main {{ version }}
+    - libgl-devel                        # [linux]
+    - libglx-devel                       # [linux]
+    - libegl-devel                       # [linux]
+    - libopengl-devel                    # [linux]
     - xorg-libx11                        # [linux]
     - xorg-libxext                       # [linux]
     - xorg-libxdamage                    # [linux]
