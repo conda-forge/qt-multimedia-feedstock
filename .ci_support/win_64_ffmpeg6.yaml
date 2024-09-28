@@ -12,5 +12,7 @@ ffmpeg:
 - '6'
 perl:
 - 5.32.1
+qt:
+- '5.15'
 target_platform:
 - win-64
