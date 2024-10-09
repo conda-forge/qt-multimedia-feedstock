@@ -1,0 +1,38 @@
+diff --git a/src/multimedia/CMakeLists.txt b/src/multimedia/CMakeLists.txt
+index 3a7f92350..ccaee96f6 100644
+--- a/src/multimedia/CMakeLists.txt
++++ b/src/multimedia/CMakeLists.txt
+@@ -93,6 +93,12 @@ qt_internal_add_module(Multimedia
+         video/qvideoframeformat.cpp video/qvideoframeformat.h
+         video/qvideowindow.cpp video/qvideowindow_p.h
+         video/qtvideo.cpp video/qtvideo.h
++    NO_UNITY_BUILD_SOURCES
++        audio/qaudiobufferinput.cpp
++        platform/qplatformaudiobufferinput.cpp
++        recording/qvideoframeinput.cpp
++        platform/qplatformvideoframeinput.cpp
++        platform/qplatformmediacapture.cpp
+     INCLUDE_DIRECTORIES
+         audio
+         camera
+diff --git a/src/plugins/multimedia/ffmpeg/CMakeLists.txt b/src/plugins/multimedia/ffmpeg/CMakeLists.txt
+index 77c459aa8..e15f0fb7f 100644
+--- a/src/plugins/multimedia/ffmpeg/CMakeLists.txt
++++ b/src/plugins/multimedia/ffmpeg/CMakeLists.txt
+@@ -78,6 +78,16 @@ qt_internal_add_plugin(QFFmpegMediaPlugin
+         recordingengine/qffmpegvideoframeencoder_p.h
+         recordingengine/qffmpegvideoframeencoder.cpp
+ 
++    NO_UNITY_BUILD_SOURCES
++        recordingengine/qffmpegrecordingengineutils.cpp
++        recordingengine/qffmpegencodinginitializer.cpp
++        recordingengine/qffmpegrecordingengine.cpp
++        recordingengine/qffmpegaudioencoder.cpp
++        recordingengine/qffmpegrecordingengine.cpp
++        qffmpegmediarecorder.cpp
++        qffmpegmediaintegration.cpp
++        qffmpegaudioinput.cpp
++	qffmpegmediacapturesession.cpp
+     DEFINES
+         QT_COMPILING_FFMPEG
+     LIBRARIES
