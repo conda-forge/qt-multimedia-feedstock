@@ -12,9 +12,6 @@ if [[ $(uname) == "Linux" ]]; then
   CMAKE_ARGS="${CMAKE_ARGS} -DFEATURE_vulkan=ON"
 fi
 
-mkdir build
-cd build
-
 cmake -LAH -G "Ninja" ${CMAKE_ARGS} \
   -DCMAKE_PREFIX_PATH=${PREFIX} \
   -DCMAKE_FIND_FRAMEWORK=LAST \
@@ -23,6 +20,6 @@ cmake -LAH -G "Ninja" ${CMAKE_ARGS} \
   -DCMAKE_MESSAGE_LOG_LEVEL=STATUS \
   -DFEATURE_linux_v4l=OFF \
   -DQT_DEFAULT_MEDIA_BACKEND=ffmpeg \
-  ..
+  -B build .
 
-cmake --build . --target install
+cmake --build build --target install
