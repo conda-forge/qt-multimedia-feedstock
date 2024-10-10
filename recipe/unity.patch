@@ -1,38 +1,32 @@
-diff --git a/src/multimedia/CMakeLists.txt b/src/multimedia/CMakeLists.txt
-index 3a7f92350..ccaee96f6 100644
---- a/src/multimedia/CMakeLists.txt
-+++ b/src/multimedia/CMakeLists.txt
-@@ -93,6 +93,12 @@ qt_internal_add_module(Multimedia
-         video/qvideoframeformat.cpp video/qvideoframeformat.h
-         video/qvideowindow.cpp video/qvideowindow_p.h
-         video/qtvideo.cpp video/qtvideo.h
-+    NO_UNITY_BUILD_SOURCES
-+        audio/qaudiobufferinput.cpp
-+        platform/qplatformaudiobufferinput.cpp
-+        recording/qvideoframeinput.cpp
-+        platform/qplatformvideoframeinput.cpp
-+        platform/qplatformmediacapture.cpp
-     INCLUDE_DIRECTORIES
-         audio
-         camera
-diff --git a/src/plugins/multimedia/ffmpeg/CMakeLists.txt b/src/plugins/multimedia/ffmpeg/CMakeLists.txt
-index 77c459aa8..e15f0fb7f 100644
---- a/src/plugins/multimedia/ffmpeg/CMakeLists.txt
-+++ b/src/plugins/multimedia/ffmpeg/CMakeLists.txt
-@@ -78,6 +78,16 @@ qt_internal_add_plugin(QFFmpegMediaPlugin
-         recordingengine/qffmpegvideoframeencoder_p.h
-         recordingengine/qffmpegvideoframeencoder.cpp
+diff --git a/src/multimedia/platform/qplatformaudiobufferinput_p.h b/src/multimedia/platform/qplatformaudiobufferinput_p.h
+index 55636ce06..530266a4f 100644
+--- a/src/multimedia/platform/qplatformaudiobufferinput_p.h
++++ b/src/multimedia/platform/qplatformaudiobufferinput_p.h
+@@ -38,9 +38,9 @@ public:
+     const QAudioFormat &audioFormat() const { return m_format; }
  
-+    NO_UNITY_BUILD_SOURCES
-+        recordingengine/qffmpegrecordingengineutils.cpp
-+        recordingengine/qffmpegencodinginitializer.cpp
-+        recordingengine/qffmpegrecordingengine.cpp
-+        recordingengine/qffmpegaudioencoder.cpp
-+        recordingengine/qffmpegrecordingengine.cpp
-+        qffmpegmediarecorder.cpp
-+        qffmpegmediaintegration.cpp
-+        qffmpegaudioinput.cpp
-+	qffmpegmediacapturesession.cpp
-     DEFINES
-         QT_COMPILING_FFMPEG
-     LIBRARIES
+     QMediaInputEncoderInterface *encoderInterface() const { return m_encoderInterface; }
+-    void setEncoderInterface(QMediaInputEncoderInterface *interface)
++    void setEncoderInterface(QMediaInputEncoderInterface *encoderInterface)
+     {
+-        m_encoderInterface = interface;
++        m_encoderInterface = encoderInterface;
+     }
+ 
+ Q_SIGNALS:
+diff --git a/src/multimedia/platform/qplatformvideoframeinput_p.h b/src/multimedia/platform/qplatformvideoframeinput_p.h
+index 45714492c..ccab7c4c5 100644
+--- a/src/multimedia/platform/qplatformvideoframeinput_p.h
++++ b/src/multimedia/platform/qplatformvideoframeinput_p.h
+@@ -37,9 +37,9 @@ public:
+     QString errorString() const final { return {}; }
+ 
+     QMediaInputEncoderInterface *encoderInterface() const { return m_encoderInterface; }
+-    void setEncoderInterface(QMediaInputEncoderInterface *interface)
++    void setEncoderInterface(QMediaInputEncoderInterface *encoderInterface)
+     {
+-        m_encoderInterface = interface;
++        m_encoderInterface = encoderInterface;
+     }
+ 
+ Q_SIGNALS:
