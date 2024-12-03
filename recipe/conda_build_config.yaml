@@ -2,7 +2,7 @@
 c_stdlib_version:          # [osx]
   - '11.0'                 # [osx]
 MACOSX_SDK_VERSION:        # [osx]
-  - '12.3'                 # [osx]
+  - '14'                   # [osx]
 
 gstreamer:                 # [unix]
 - '1.24'                   # [unix]
