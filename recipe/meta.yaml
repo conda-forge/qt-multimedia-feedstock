@@ -9,7 +9,7 @@ source:
   sha256: 7bf8a19a57a7432181b05d0e264acfd8ca4b75a3901d01a27a32935703e5ab12
 
 build:
-  number: 0
+  number: 1
   detect_binary_files_with_prefix: true
   run_exports:
     - {{ pin_subpackage('qt6-multimedia', max_pin='x.x') }}
