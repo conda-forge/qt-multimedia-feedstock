@@ -1,6 +1,4 @@
 bot: {automerge: true}
-os_version:
-  linux_64: cos7
 provider:
   linux_aarch64: default
 build_platform:
