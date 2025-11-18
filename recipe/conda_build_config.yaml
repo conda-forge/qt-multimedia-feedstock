@@ -1,8 +1,8 @@
 # https://doc.qt.io/qt-6/macos.html
 c_stdlib_version:          # [osx]
-  - '11.0'                 # [osx]
+  - '13.0'                 # [osx]
 MACOSX_SDK_VERSION:        # [osx]
-  - '14'                   # [osx]
+  - '14.5'                 # [osx]
 
 gstreamer:                 # [unix]
 - '1.24'                   # [unix]
