@@ -4,11 +4,6 @@ c_stdlib_version:          # [osx]
 MACOSX_SDK_VERSION:        # [osx]
   - '14.5'                 # [osx]
 
-gstreamer:                 # [unix]
-- '1.24'                   # [unix]
-gst_plugins_base:          # [unix]
-- '1.24'                   # [unix]
-
 # Using vs2022
 c_compiler:    # [win]
 - vs2022       # [win]
