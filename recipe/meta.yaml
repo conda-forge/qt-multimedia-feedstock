@@ -1,4 +1,4 @@
-{% set version = "6.10.0" %}
+{% set version = "6.10.1" %}
 
 package:
   name: qt6-multimedia
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qtmultimedia-everywhere-src-{{ version }}.tar.xz
-  sha256: 04424021cf0d1d19799f5967310d484d1afa6fdd0b31725d0ee7608d2eef1126
+  sha256: f7a4f9bc2840d4f0f9f7329f0dcb3d3500c54177b8e368091a3727c7320e67b8
 
 build:
   number: 0
