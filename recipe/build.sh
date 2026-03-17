@@ -19,7 +19,6 @@ cmake -LAH -G "Ninja" ${CMAKE_ARGS} \
   -DCMAKE_UNITY_BUILD=ON -DCMAKE_UNITY_BUILD_BATCH_SIZE=32 \
   -DCMAKE_MESSAGE_LOG_LEVEL=STATUS \
   -DFEATURE_linux_v4l=OFF \
-  -DQT_DEFAULT_MEDIA_BACKEND=ffmpeg \
   -B build .
 
 cmake --build build --target install
