@@ -1,5 +1,5 @@
 context:
-  version: "6.11.0"
+  version: "6.11.1"
   maj_min: ${{ (version | split('.'))[:2] | join('.') }}
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://download.qt.io/official_releases/qt/${{ maj_min }}/${{ version }}/submodules/qtmultimedia-everywhere-src-${{ version }}.tar.xz
-  sha256: 90c4cac0a7a983b68d1b0873d0714e7873b9a493403fa8593e8a4eea3ea26040
+  sha256: 390f8e52ddee3aca5c4de7eead900c84c4fa61ff6d1f0ebea9c7543365c09b0a
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
