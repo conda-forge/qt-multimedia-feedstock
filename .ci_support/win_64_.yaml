@@ -9,7 +9,7 @@ channel_targets:
 cxx_compiler:
 - vs2022
 ffmpeg:
-- '8'
+- '9'
 perl:
 - 5.32.1
 target_platform:
