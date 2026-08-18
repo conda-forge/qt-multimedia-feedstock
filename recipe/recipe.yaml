@@ -50,6 +50,8 @@ requirements:
     - qt6-main ${{ version }}.*
     - ffmpeg
     - ffmpeg * lgpl*
+    - libvulkan-headers
+    - libvulkan-loader
     - if: linux
       then:
         - pthread-stubs
@@ -68,10 +70,6 @@ requirements:
         - xorg-libxtst
         - xorg-xf86vidmodeproto
         - alsa-lib
-    - if: not osx
-      then:
-        - libvulkan-headers
-        - libvulkan-loader
   run:
     - qt6-main ${{ version }}.*
     - if: linux
