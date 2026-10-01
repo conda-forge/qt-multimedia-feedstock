@@ -1,0 +1,26 @@
+Don't build the udmabuf test helpers when <linux/udmabuf.h> is unavailable
+
+The udmabuf uapi header only exists since Linux 5.19. Distributions (and
+packaging systems) that deliberately build against older kernel uapi headers
+for binary compatibility must be able to build without it, so only compile
+udmabuftestutils.cpp when the header is actually present. The helpers are only
+used by the udmabuf unit tests, which are skipped anyway when the feature
+check for linux_dmabuf fails.
+
+diff --git a/src/multimediatestlib/CMakeLists.txt b/src/multimediatestlib/CMakeLists.txt
+index 68d48a1..0000000 100644
+--- a/src/multimediatestlib/CMakeLists.txt
++++ b/src/multimediatestlib/CMakeLists.txt
+@@ -36,7 +36,11 @@ qt_internal_add_module(MultimediaTestLibPrivate
+     QT_LICENSE_ID QT_COMMERCIAL_OR_GPL3
+ )
+ 
+-qt_internal_extend_target(MultimediaTestLibPrivate CONDITION LINUX
++include(CheckIncludeFileCXX)
++check_include_file_cxx("linux/udmabuf.h" QT_MULTIMEDIA_HAVE_UDMABUF)
++
++qt_internal_extend_target(MultimediaTestLibPrivate
++    CONDITION LINUX AND QT_MULTIMEDIA_HAVE_UDMABUF
+     SOURCES
+         udmabuftestutils_p.h udmabuftestutils.cpp
+ )
